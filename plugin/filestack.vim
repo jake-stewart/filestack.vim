@@ -1,4 +1,4 @@
-function! filestack#navigate(direction)
+function! FilestackNavigate(direction)
     let [l:jumplist, l:pos] = getjumplist()
     let l:key = a:direction == 1 ? "1\<c-i>" : "\<c-o>"
     let l:bufnr = bufnr()
@@ -25,10 +25,10 @@ function! filestack#navigate(direction)
     endwhile
 endfunction
 
-function! filestack#forward()
-    call filestack#navigate(1)
+function! FilestackForward()
+    call FilestackNavigate(1)
 endfunction
 
-function! filestack#back()
-    call filestack#navigate(-1)
+function! FilestackBack()
+    call FilestackNavigate(-1)
 endfunction

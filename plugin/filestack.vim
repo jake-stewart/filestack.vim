@@ -1,4 +1,4 @@
-function! NavigateFileJumplist(direction)
+function! filestack#navigate(direction)
     let [l:jumplist, l:pos] = getjumplist()
     let l:key = a:direction == 1 ? "1\<c-i>" : "\<c-o>"
     let l:bufnr = bufnr()
@@ -23,4 +23,12 @@ function! NavigateFileJumplist(direction)
         endif
         exe "norm 1\<c-i>"
     endwhile
+endfunction
+
+function! filestack#forward()
+    call filestack#navigate(1)
+endfunction
+
+function! filestack#back()
+    call filestack#navigate(-1)
 endfunction
